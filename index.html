@@ -480,45 +480,17 @@
                     <li>Click the 'Execute' button ( <i class="fa-solid fa-play"></i> ) in the toolbar or press the associated shortcut.</li>
                     <li>Output or results will appear in the designated output area or console within the application.</li>
                 </ol>
-                <pre><code class="language-python"># Example Python script
-import sys
-
-def main():
-    print(f"Hello from Macsploit V2!")
-    print(f"Python version: {sys.version}")
-
-if __name__ == "__main__":
-    main()</code></pre>
-             </div>
-
-             <div class="animate-on-scroll fade-in">
-                <h3>Plugin API</h3>
-                <h4>Overview</h4>
-                <p>Extend Macsploit V2 using the powerful Lua-based plugin API. You can create custom commands, interface elements, language support, and more.</p>
-                <p>Plugins are typically Lua scripts placed in the user's Macsploit V2 configuration directory (`~/.config/macsploitv2/plugins` or similar).</p>
-
-                <h4>Example API Usage</h4>
-                <p>Here's a simple example of registering a new command:</p>
-                <pre><code class="language-lua">-- plugins/my_command.lua
-
--- Access the Macsploit V2 API namespace
-local sv2 = macsploitv2
-
--- Register a command that shows an info message
-sv2.commands.register("myplugin.showInfo", function()
-  sv2.ui.show_info_message("My Plugin Command Executed!")
-end)
-
--- Optionally, add it to the command palette/toolbar
--- (Specific API may vary)
-sv2.ui.add_toolbar_button({
-  command = "myplugin.showInfo",
-  label = "Show Info",
-  icon = "info-circle" -- Example icon name
-})
+                <pre><code class="language-python"># Example Lua Script
+                    local Params = {
+ RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+ SSI = "saveinstance",
+}
+local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+synsaveinstance(Options)
 
 sv2.log.info("My Plugin loaded successfully.")</code></pre>
-                <p>This command might now appear as a button or be accessible via a command menu.</p>
+                <p>This script will now work!</p>
                 <h4>Available API Modules (Partial List)</h4>
                 <ul>
                     <li><code>macsploitv2.editor</code>: Interact with the active editor (get/set text, selections, etc.).</li>
