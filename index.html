@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syntax V2 - The Future of Development Tools</title>
+    <title>Macsploit V2 - Advanced Exploiting Environment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
@@ -16,9 +16,10 @@
              scroll-behavior: smooth;
         }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #0f172a; /* slate-900 */
-            color: #e2e8f0; /* slate-200 */
+            font-family: 'Inter', sans-serif;
+            /* Darker grey/black theme using Zinc */
+            background-color: #18181b; /* zinc-900 */
+            color: #d4d4d8; /* zinc-300 */
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
         /* Code blocks font */
@@ -26,9 +27,9 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Custom Gradient Text */
+        /* Custom Gradient Text - Cooler Tones */
         .gradient-text {
-            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc); /* sky-500, indigo-400, purple-400 */
+            background: linear-gradient(to right, #0ea5e9, #6366f1, #a78bfa); /* sky-500, indigo-500, violet-400 */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -36,27 +37,29 @@
 
         /* Custom Button Styles */
         .btn {
-            @apply inline-block px-6 py-3 rounded-lg font-semibold transition duration-300 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900;
+            @apply inline-block px-6 py-3 rounded-md font-semibold transition duration-300 ease-in-out shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900;
         }
         .btn-primary {
-            @apply bg-gradient-to-r from-sky-500 to-indigo-600 text-white hover:from-sky-600 hover:to-indigo-700 focus:ring-sky-500 transform hover:-translate-y-1 shadow-lg hover:shadow-sky-500/30;
+            /* Adjusted gradient for darker theme */
+            @apply bg-gradient-to-r from-sky-600 to-indigo-600 text-white hover:from-sky-700 hover:to-indigo-700 focus:ring-sky-500 transform hover:-translate-y-0.5 shadow-lg hover:shadow-sky-600/30;
         }
         .btn-secondary {
-            @apply bg-slate-700 text-slate-100 hover:bg-slate-600 focus:ring-slate-500;
+            @apply bg-zinc-700 text-zinc-100 hover:bg-zinc-600 focus:ring-zinc-500;
         }
         .btn-outline {
-             @apply bg-transparent border-2 border-sky-500 text-sky-400 hover:bg-sky-500/10 focus:ring-sky-500;
+             /* Adjusted outline for darker theme */
+             @apply bg-transparent border-2 border-sky-600 text-sky-400 hover:bg-sky-600/10 focus:ring-sky-500;
         }
 
         /* Header Styling */
         header {
-            @apply sticky top-0 z-50 py-4 px-6 md:px-10 lg:px-16 bg-slate-900/80 backdrop-blur-md border-b border-slate-700/50 shadow-lg;
+            @apply sticky top-0 z-50 py-4 px-6 md:px-10 lg:px-16 bg-zinc-900/90 backdrop-blur-lg border-b border-zinc-700/60 shadow-md;
         }
         header nav a {
-            @apply text-slate-300 hover:text-sky-400 transition duration-200 px-3 py-2 rounded-md text-sm font-medium;
+            @apply text-zinc-400 hover:text-sky-400 transition duration-200 px-3 py-2 rounded-md text-sm font-medium;
         }
         header nav a.active-link {
-            @apply bg-slate-700 text-white;
+            @apply bg-zinc-700 text-white;
         }
 
         /* Page Section Styling */
@@ -84,25 +87,9 @@
         }
 
         /* Scroll Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; } to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
         .animate-on-scroll {
             opacity: 0;
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
         .animate-on-scroll.animated {
             opacity: 1;
@@ -110,111 +97,185 @@
         }
         /* Initial states */
         .animate-on-scroll.fade-in { animation-delay: 0.1s; }
-        .animate-on-scroll.slide-up { transform: translateY(30px); animation-delay: 0.2s; }
-        .animate-on-scroll.slide-in-left { transform: translateX(-30px); animation-delay: 0.2s; }
-        .animate-on-scroll.slide-in-right { transform: translateX(30px); animation-delay: 0.2s; }
+        .animate-on-scroll.slide-up { transform: translateY(25px); animation-delay: 0.15s; }
+        .animate-on-scroll.slide-in-left { transform: translateX(-25px); animation-delay: 0.15s; }
+        .animate-on-scroll.slide-in-right { transform: translateX(25px); animation-delay: 0.15s; }
 
 
         /* Hero Section Specifics */
-        .hero-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0) 70%);
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            animation: pulseGlow 5s infinite alternate ease-in-out;
-        }
-        @keyframes pulseGlow {
-            from { opacity: 0.6; transform: translate(-50%, -50%) scale(0.8); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        .hero-grid-bg { /* Subtle grid background */
+             background-image: linear-gradient(to right, rgba(52, 52, 56, 0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(52, 52, 56, 0.3) 1px, transparent 1px);
+             background-size: 40px 40px;
+             position: absolute;
+             top: 0; left: 0; right: 0; bottom: 0;
+             z-index: -1;
+             mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
         }
 
-        /* Animated Code Block */
-        .animated-code-block {
-            background-color: #1e293b; /* slate-800 */
-            border: 1px solid #334155; /* slate-700 */
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            color: #cbd5e1; /* slate-300 */
-            position: relative;
+        /* Mock UI inspired by the screenshot */
+        .mock-app-window {
+            background-color: #27272a; /* zinc-800 */
+            border: 1px solid #3f3f46; /* zinc-700 */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            min-height: 250px; /* Give it some height */
+            min-height: 350px; /* Ensure decent height */
+            display: flex;
+            flex-direction: column;
         }
-        .animated-code-block::before { /* Top bar */
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 30px;
-            background-color: #334155; /* slate-700 */
-            border-bottom: 1px solid #475569; /* slate-600 */
-            display: block;
+        .mock-app-header {
+            background-color: #3f3f46; /* zinc-700 */
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #52525b; /* zinc-600 */
         }
-        .animated-code-block::after { /* Traffic lights */
-            content: '';
-            position: absolute;
-            top: 10px; left: 15px;
-            width: 10px; height: 10px;
-            background-color: #ef4444; /* red-500 */
-            border-radius: 50%;
-            box-shadow: 18px 0 0 #f59e0b, 36px 0 0 #22c55e; /* amber-500, green-500 */
+         .mock-app-header-left {
+             display: flex;
+             align-items: center;
+             gap: 0.5rem;
+         }
+         .mock-app-traffic-lights span {
+             display: inline-block;
+             width: 12px; height: 12px;
+             border-radius: 50%;
+         }
+        .mock-app-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #e4e4e7; /* zinc-200 */
+            margin-left: 1rem;
         }
-        .code-line {
-            display: block;
-            white-space: pre;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: codeLineFadeIn 0.5s forwards;
+        .mock-app-header-right {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #a1a1aa; /* zinc-400 */
+            background-color: #18181b; /* zinc-900 */
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem; /* rounded-sm */
         }
-        @keyframes codeLineFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+        .mock-app-toolbar {
+            background-color: #27272a; /* zinc-800 */
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid #3f3f46; /* zinc-700 */
         }
-        .code-line .token-keyword { color: #c084fc; } /* purple-400 */
-        .code-line .token-function { color: #60a5fa; } /* blue-400 */
-        .code-line .token-string { color: #a3e635; } /* lime-400 */
-        .code-line .token-comment { color: #64748b; } /* slate-500 */
-        .code-line .token-number { color: #f59e0b; } /* amber-500 */
-        .code-line .token-variable { color: #e2e8f0; } /* slate-200 */
+        .mock-app-button {
+            font-size: 0.8rem;
+            color: #a1a1aa; /* zinc-400 */
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s;
+        }
+        .mock-app-button:hover {
+            background-color: #3f3f46; /* zinc-700 */
+            color: #e4e4e7; /* zinc-200 */
+        }
+        .mock-app-button i {
+            font-size: 0.9rem;
+        }
+        .mock-app-content-area {
+            display: flex;
+            flex-grow: 1;
+        }
+        .mock-app-sidebar {
+            width: 150px;
+            background-color: #18181b; /* zinc-900 */
+            padding: 1rem 0.75rem;
+            border-right: 1px solid #3f3f46; /* zinc-700 */
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+        .mock-app-sidebar-item {
+            font-size: 0.85rem;
+            color: #a1a1aa; /* zinc-400 */
+            padding: 0.5rem;
+            border-radius: 0.375rem; /* rounded-md */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        .mock-app-sidebar-item.active, .mock-app-sidebar-item:hover {
+            background-color: #27272a; /* zinc-800 */
+            color: #e4e4e7; /* zinc-200 */
+        }
+        .mock-app-main {
+            flex-grow: 1;
+            background-color: #1f1f22; /* Slightly different dark for editor */
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #a1a1aa; /* zinc-400 */
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow: auto; /* In case content is long */
+        }
+        .mock-app-tab {
+             display: inline-block;
+             background-color: #3f3f46; /* zinc-700 */
+             color: #e4e4e7; /* zinc-200 */
+             padding: 0.3rem 0.8rem;
+             border-radius: 0.375rem 0.375rem 0 0; /* rounded-t-md */
+             font-size: 0.8rem;
+             margin-bottom: -1px; /* Overlap border */
+             border: 1px solid #3f3f46;
+             border-bottom: none;
+             position: relative;
+        }
+        .mock-app-editor-content {
+            margin-top: 0.5rem;
+            color: #d4d4d8; /* zinc-300 */
+        }
+        .mock-app-editor-line-number {
+            color: #52525b; /* zinc-600 */
+            margin-right: 1rem;
+            user-select: none;
+        }
+
 
         /* Features Section Styling */
         .feature-card {
-            @apply bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700 hover:border-sky-500 transition duration-300 transform hover:-translate-y-2;
+            @apply bg-zinc-800 p-6 rounded-lg shadow-lg border border-zinc-700/80 hover:border-sky-600 transition duration-300 transform hover:-translate-y-1;
         }
         .feature-card i {
             @apply text-3xl mb-4 gradient-text;
         }
 
         /* Docs Page Styling */
-        #docs-page h3 { @apply text-2xl font-semibold mb-4 mt-8 border-l-4 border-sky-500 pl-4 text-slate-100; }
+        #docs-page h3 { @apply text-2xl font-semibold mb-4 mt-8 border-l-4 border-sky-600 pl-4 text-zinc-100; }
         #docs-page h4 { @apply text-xl font-semibold mt-6 mb-3 text-indigo-400; }
-        #docs-page p { @apply mb-4 text-slate-300 leading-relaxed; }
-        #docs-page code:not(pre code) { @apply bg-slate-700 text-amber-400 px-2 py-0.5 rounded-md text-sm font-medium; }
-        #docs-page pre { @apply bg-slate-800 p-4 rounded-md overflow-x-auto text-sm border border-slate-700 mb-4 shadow-inner; }
-        #docs-page pre code { @apply bg-transparent p-0 text-slate-300; } /* Reset code style inside pre */
-        #docs-page ul { @apply list-disc list-inside mb-4 pl-4 text-slate-300 space-y-1; }
-        #docs-page ol { @apply list-decimal list-inside mb-4 pl-4 text-slate-300 space-y-1; }
+        #docs-page p { @apply mb-4 text-zinc-300 leading-relaxed; }
+        #docs-page code:not(pre code) { @apply bg-zinc-700 text-amber-400 px-2 py-0.5 rounded-md text-sm font-medium; }
+        #docs-page pre { @apply bg-zinc-800/80 p-4 rounded-md overflow-x-auto text-sm border border-zinc-700 mb-4 shadow-inner; }
+        #docs-page pre code { @apply bg-transparent p-0 text-zinc-300; } /* Reset code style inside pre */
+        #docs-page ul { @apply list-disc list-inside mb-4 pl-4 text-zinc-300 space-y-1; }
+        #docs-page ol { @apply list-decimal list-inside mb-4 pl-4 text-zinc-300 space-y-1; }
         #docs-page a { @apply text-sky-400 hover:text-sky-300 hover:underline; }
-        #docs-page strong { @apply text-slate-100 font-semibold; }
+        #docs-page strong { @apply text-zinc-100 font-semibold; }
 
         /* Legal Pages Styling (Privacy, TOS) */
-        .legal-page h3 { @apply text-2xl font-semibold mb-4 mt-8 text-slate-100; }
+        .legal-page h3 { @apply text-2xl font-semibold mb-4 mt-8 text-zinc-100; }
         .legal-page h4 { @apply text-xl font-semibold mt-6 mb-3 text-indigo-400; }
-        .legal-page p { @apply mb-4 text-slate-300 leading-relaxed; }
-        .legal-page ul { @apply list-disc list-inside mb-4 pl-4 text-slate-300 space-y-1; }
+        .legal-page p { @apply mb-4 text-zinc-300 leading-relaxed; }
+        .legal-page ul { @apply list-disc list-inside mb-4 pl-4 text-zinc-300 space-y-1; }
         .legal-page a { @apply text-sky-400 hover:text-sky-300 hover:underline; }
 
         /* Footer */
         footer {
-            @apply py-8 px-6 md:px-10 lg:px-16 bg-slate-900 border-t border-slate-700/50 mt-16;
+            @apply py-8 px-6 md:px-10 lg:px-16 bg-zinc-900 border-t border-zinc-700/60 mt-16;
         }
         footer a {
-            @apply text-slate-400 hover:text-sky-400 transition duration-200;
+            @apply text-zinc-400 hover:text-sky-400 transition duration-200;
         }
 
     </style>
@@ -223,13 +284,13 @@
 
     <header>
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" onclick="showPage('home'); return false;" class="text-2xl font-bold gradient-text">Syntax V2</a>
+            <a href="#" onclick="showPage('home'); return false;" class="text-xl font-semibold gradient-text">Macsploit V2</a>
             <nav>
-                <ul class="flex items-center space-x-2 md:space-x-4">
+                <ul class="flex items-center space-x-1 md:space-x-3">
                     <li><a href="#" onclick="showPage('home'); return false;" class="nav-link">Home</a></li>
                     <li><a href="#" onclick="showPage('features'); return false;" class="nav-link">Features</a></li>
                     <li><a href="#" onclick="showPage('docs'); return false;" class="nav-link">Docs</a></li>
-                    <li><a href="#" onclick="showPage('pricing'); return false;" class="btn btn-primary ml-2">Pay Now</a></li>
+                    <li><a href="#" onclick="showPage('pricing'); return false;" class="btn btn-primary ml-2 text-sm py-2 px-4">Pay Now</a></li>
                  </ul>
             </nav>
         </div>
@@ -237,73 +298,117 @@
 
     <main>
         <section id="home-page" class="page-section relative overflow-hidden">
-            <div class="hero-glow"></div> <div class="hero-section container mx-auto px-6 md:px-10 lg:px-16 text-center relative z-10 min-h-[calc(100vh-72px)] flex flex-col justify-center">
-                <div class="animate-on-scroll fade-in">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                        Build, Test, Deploy.<br> <span class="gradient-text">Faster Than Ever.</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto">
-                        Syntax V2 provides an unparalleled development environment, integrating powerful tools with an intuitive interface to accelerate your workflow.
-                    </p>
-                    <div class="space-x-4">
-                        <a href="#" onclick="showPage('pricing'); return false;" class="btn btn-primary text-lg">Get Syntax V2 Now</a>
-                        <a href="#" onclick="showPage('features'); return false;" class="btn btn-outline text-lg">Explore Features</a>
+             <div class="hero-grid-bg"></div> <div class="hero-section container mx-auto px-6 md:px-10 lg:px-16 relative z-10 min-h-[calc(100vh-72px)] flex flex-col justify-center">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left animate-on-scroll slide-in-left">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            The Evolution of <br class="hidden md:inline"> <span class="gradient-text">Exploiting Tools</span>.
+                        </h1>
+                        <p class="text-lg text-zinc-300 mb-10 max-w-lg mx-auto md:mx-0">
+                            Macsploit V2 integrates powerful scripting, automation, and analysis into one modern, intuitive environment. Boost your productivity.
+                        </p>
+                        <div class="space-x-4">
+                            <a href="#" onclick="showPage('pricing'); return false;" class="btn btn-primary">Get Macsploit V2</a>
+                            <a href="#" onclick="showPage('features'); return false;" class="btn btn-secondary">Learn More</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mt-16 md:mt-20 max-w-3xl mx-auto animate-on-scroll slide-up">
-                    <div class="animated-code-block">
-                        <div id="code-animation-container" class="pt-8">
+                    <div class="animate-on-scroll slide-in-right">
+                        <div class="mock-app-window">
+                            <div class="mock-app-header">
+                                <div class="mock-app-header-left">
+                                     <div class="mock-app-traffic-lights">
+                                         <span style="background-color: #f87171;"></span> <span style="background-color: #facc15;"></span> <span style="background-color: #4ade80;"></span> </div>
+                                     <span class="mock-app-title">Macsploit V2</span>
+                                </div>
+                                <div class="mock-app-header-right">
+                                    Port: 7777
+                                </div>
                             </div>
+                            <div class="mock-app-toolbar">
+                                <button class="mock-app-button"><i class="fa-solid fa-play"></i> Execute</button>
+                                <button class="mock-app-button"><i class="fa-solid fa-broom"></i> Clear</button>
+                                <button class="mock-app-button"><i class="fa-regular fa-folder-open"></i> Open File</button>
+                                <button class="mock-app-button"><i class="fa-regular fa-file-lines"></i> Exec File</button>
+                                <button class="mock-app-button"><i class="fa-regular fa-save"></i> Save File</button>
+                            </div>
+                            <div class="mock-app-content-area">
+                                <div class="mock-app-sidebar">
+                                    <div class="mock-app-sidebar-item active">
+                                        <i class="fa-solid fa-code w-4 text-center"></i> Script Editor
+                                    </div>
+                                    <div class="mock-app-sidebar-item">
+                                        <i class="fa-solid fa-magnifying-glass w-4 text-center"></i> Script Library
+                                    </div>
+                                    <div class="mock-app-sidebar-item">
+                                        <i class="fa-solid fa-gear w-4 text-center"></i> Settings
+                                    </div>
+                                </div>
+                                <div class="mock-app-main">
+                                    <div class="mock-app-tab">Tab - 1</div>
+                                    <div class="mock-app-editor-content">
+                                        <div><span class="mock-app-editor-line-number">1</span><span>-- Loading Macsploit V2 Core...</span></div>
+                                        <div><span class="mock-app-editor-line-number">2</span><span>-- Ready.</span></div>
+                                        <div><span class="mock-app-editor-line-number">3</span><span class="text-sky-400">local</span> utils = <span class="text-violet-400">require</span>(<span class="text-emerald-400">"core.utils"</span>)</div>
+                                        <div><span class="mock-app-editor-line-number">4</span></div>
+                                        <div><span class="mock-app-editor-line-number">5</span><span class="text-sky-400">function</span> <span class="text-indigo-400">process_data</span>(input)</div>
+                                        <div><span class="mock-app-editor-line-number">6</span> &nbsp;&nbsp;<span class="text-sky-400">local</span> result = utils.<span class="text-indigo-400">transform</span>(input)</div>
+                                        <div><span class="mock-app-editor-line-number">7</span> &nbsp;&nbsp;<span class="text-sky-400">return</span> result</div>
+                                        <div><span class="mock-app-editor-line-number">8</span><span class="text-sky-400">end</span></div>
+                                        <div><span class="mock-app-editor-line-number">9</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section> <section id="features-page" class="page-section container mx-auto px-6 md:px-10 lg:px-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll fade-in">Why <span class="gradient-text">Syntax V2</span>?</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll fade-in">Why <span class="gradient-text">Macsploit V2</span>?</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="feature-card animate-on-scroll slide-up">
                     <i class="fa-solid fa-bolt-lightning"></i>
-                    <h3 class="text-xl font-semibold mb-2 text-slate-100">Blazing Fast Engine</h3>
-                    <p class="text-slate-400">Execute complex tasks and scripts in milliseconds with our highly optimized core engine.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-zinc-100">Blazing Fast Engine</h3>
+                    <p class="text-zinc-400">Execute complex tasks and scripts in milliseconds with our highly optimized core engine.</p>
+                </div>
+                <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.1s;">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-zinc-100">Modular Architecture</h3>
+                    <p class="text-zinc-400">Extend functionality easily with a powerful plugin system and well-documented API.</p>
+                </div>
+                <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.2s;">
+                    <i class="fa-solid fa-code"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-zinc-100">Intelligent Editor</h3>
+                    <p class="text-zinc-400">Enjoy smart code completion, macsploit highlighting, and real-time error checking.</p>
                 </div>
                 <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.3s;">
-                    <i class="fa-solid fa-puzzle-piece"></i>
-                    <h3 class="text-xl font-semibold mb-2 text-slate-100">Modular Architecture</h3>
-                    <p class="text-slate-400">Extend functionality easily with a powerful plugin system and well-documented API.</p>
-                </div>
-                <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.4s;">
-                    <i class="fa-solid fa-code"></i>
-                    <h3 class="text-xl font-semibold mb-2 text-slate-100">Intelligent Editor</h3>
-                    <p class="text-slate-400">Enjoy smart code completion, syntax highlighting, and real-time error checking.</p>
-                </div>
-                <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.5s;">
                     <i class="fa-solid fa-shield-halved"></i>
-                    <h3 class="text-xl font-semibold mb-2 text-slate-100">Secure Environment</h3>
-                    <p class="text-slate-400">Run scripts in a sandboxed environment for enhanced security and stability.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-zinc-100">Secure Environment</h3>
+                    <p class="text-zinc-400">Run scripts in a sandboxed environment for enhanced security and stability.</p>
                 </div>
-                 <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.6s;">
+                 <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.4s;">
                     <i class="fa-solid fa-network-wired"></i>
-                    <h3 class="text-xl font-semibold mb-2 text-slate-100">Seamless Integration</h3>
-                    <p class="text-slate-400">Connect with your favorite tools and services through built-in integrations.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-zinc-100">Seamless Integration</h3>
+                    <p class="text-zinc-400">Connect with your favorite tools and services through built-in integrations.</p>
                 </div>
-                 <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.7s;">
+                 <div class="feature-card animate-on-scroll slide-up" style="animation-delay: 0.5s;">
                     <i class="fa-solid fa-palette"></i>
-                    <h3 class="text-xl font-semibold mb-2 text-slate-100">Customizable UI</h3>
-                    <p class="text-slate-400">Tailor the interface with themes and layout options to fit your preferences.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-zinc-100">Customizable UI</h3>
+                    <p class="text-zinc-400">Tailor the interface with themes and layout options to fit your preferences.</p>
                 </div>
             </div>
         </section> <section id="pricing-page" class="page-section container mx-auto px-6 md:px-10 lg:px-16 text-center">
-             <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 animate-on-scroll fade-in">Get <span class="gradient-text">Syntax V2</span></h2>
-             <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto animate-on-scroll fade-in" style="animation-delay: 0.1s;">
-                 Unlock the full potential of Syntax V2 with a lifetime license. One-time payment, lifetime updates.
+             <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 animate-on-scroll fade-in">Get <span class="gradient-text">Macsploit V2</span></h2>
+             <p class="text-lg md:text-xl text-zinc-300 mb-12 max-w-2xl mx-auto animate-on-scroll fade-in" style="animation-delay: 0.1s;">
+                 Unlock the full potential of Macsploit V2 with a lifetime license. One-time payment, lifetime updates.
              </p>
 
-             <div class="max-w-md mx-auto bg-slate-800 rounded-xl shadow-xl overflow-hidden border border-slate-700 animate-on-scroll slide-up" style="animation-delay: 0.2s;">
+             <div class="max-w-md mx-auto bg-zinc-800 rounded-xl shadow-xl overflow-hidden border border-zinc-700 animate-on-scroll slide-up" style="animation-delay: 0.2s;">
                  <div class="p-8">
                      <div class="uppercase tracking-wide text-sm text-indigo-400 font-semibold">Lifetime License</div>
-                     <p class="block mt-1 text-4xl leading-tight font-bold text-white">$99 <span class="text-lg text-slate-400 font-normal">USD</span></p>
-                     <p class="mt-2 text-slate-400">One-time payment for full access to all current and future features.</p>
-                     <ul class="mt-6 text-left space-y-2 text-slate-300">
+                     <p class="block mt-1 text-4xl leading-tight font-bold text-white">$99 <span class="text-lg text-zinc-400 font-normal">USD</span></p>
+                     <p class="mt-2 text-zinc-400">One-time payment for full access to all current and future features.</p>
+                     <ul class="mt-6 text-left space-y-2 text-zinc-300">
                          <li class="flex items-start">
                              <i class="fa-solid fa-check text-green-500 mr-3 mt-1 flex-shrink-0"></i>
                              <span>Access to all core features</span>
@@ -328,17 +433,17 @@
                      </div>
                  </div>
              </div>
-             <p class="mt-8 text-slate-500 animate-on-scroll fade-in" style="animation-delay: 0.3s;">Secure payment processing via Stripe (Example).</p>
+             <p class="mt-8 text-zinc-500 animate-on-scroll fade-in" style="animation-delay: 0.3s;">Secure payment processing via Stripe, Paypal, Cashapp, Robux, Bitcoin + Many more! (Example).</p>
         </section> <section id="docs-page" class="page-section container mx-auto px-6 md:px-10 lg:px-16 max-w-4xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll fade-in">Documentation</h2>
 
             <div class="animate-on-scroll fade-in">
                 <h3>Introduction</h3>
-                <p>Welcome to the Syntax V2 documentation. This guide provides comprehensive information on installation, configuration, usage, and the API to help you get the most out of the application.</p>
+                <p>Welcome to the Macsploit V2 documentation. This guide provides comprehensive information on installation, configuration, usage, and the API to help you get the most out of the application.</p>
 
                 <h3>Getting Started</h3>
                 <h4>Installation</h4>
-                <p>After purchasing Syntax V2, you will receive a download link and a license key. Download the installer for your operating system (Windows, macOS, Linux) and follow the installation wizard. During installation, you may be prompted to enter your license key to activate the software.</p>
+                <p>After purchasing Macsploit V2, you will receive a download link and a license key. Download the installer for your operating system (Windows, macOS, Linux) and follow the installation wizard. During installation, you may be prompted to enter your license key to activate the software.</p>
                 <p>Ensure your system meets the minimum requirements:</p>
                 <ul>
                     <li>Windows 10/11 (64-bit)</li>
@@ -349,20 +454,19 @@
                 </ul>
 
                 <h4>Basic Interface Overview</h4>
-                <p>The Syntax V2 interface is designed for efficiency:</p>
+                <p>The Macsploit V2 interface is designed for efficiency:</p>
                 <ol>
-                    <li><strong>Project Explorer:</strong> Manage your project files and folders.</li>
+                    <li><strong>Sidebar:</strong> Access Script Editor, Library, and Settings.</li>
+                    <li><strong>Toolbar:</strong> Contains execution controls like Execute, Clear, Open, Save.</li>
                     <li><strong>Editor Pane:</strong> Write and edit code with syntax highlighting, linting, and autocompletion. Supports multiple tabs.</li>
-                    <li><strong>Terminal/Console:</strong> Integrated terminal for running commands and viewing script output.</li>
-                    <li><strong>Plugin Manager:</strong> Discover, install, and manage extensions.</li>
-                    <li><strong>Status Bar:</strong> Displays current status, language mode, and notifications.</li>
+                    <li><strong>Status Bar:</strong> Displays connection status (Port) and notifications.</li>
                 </ol>
             </div>
 
              <div class="animate-on-scroll fade-in">
                 <h3>Core Features</h3>
                 <h4>Intelligent Code Editing</h4>
-                <p>Syntax V2 provides advanced editing features:</p>
+                <p>Macsploit V2 provides advanced editing features:</p>
                 <ul>
                     <li><strong>Multi-Language Support:</strong> Out-of-the-box support for popular languages like Python, JavaScript, Lua, C++, Rust, and more.</li>
                     <li><strong>Smart Autocompletion:</strong> Context-aware suggestions as you type.</li>
@@ -373,16 +477,16 @@
                 <h4>Script Execution</h4>
                 <p>To run a script:</p>
                 <ol>
-                    <li>Open the script file in the editor.</li>
-                    <li>Ensure the correct interpreter or runtime environment is configured in the settings.</li>
-                    <li>Use the 'Run' button ( <i class="fa-solid fa-play"></i> ) in the toolbar or press the associated shortcut (e.g., `F5`).</li>
-                    <li>Output will appear in the integrated Console panel.</li>
+                    <li>Open or type your script in the editor pane.</li>
+                    <li>Ensure any necessary environment or connection is active (e.g., Port).</li>
+                    <li>Click the 'Execute' button ( <i class="fa-solid fa-play"></i> ) in the toolbar or press the associated shortcut.</li>
+                    <li>Output or results will appear in the designated output area or console within the application.</li>
                 </ol>
                 <pre><code class="language-python"># Example Python script
 import sys
 
 def main():
-    print(f"Hello from Syntax V2!")
+    print(f"Hello from Macsploit V2!")
     print(f"Python version: {sys.version}")
 
 if __name__ == "__main__":
@@ -392,162 +496,99 @@ if __name__ == "__main__":
              <div class="animate-on-scroll fade-in">
                 <h3>Plugin API</h3>
                 <h4>Overview</h4>
-                <p>Extend Syntax V2 using the powerful Lua-based plugin API. You can create custom commands, interface elements, language support, and more.</p>
-                <p>Plugins are typically Lua scripts placed in the user's Syntax V2 configuration directory (`~/.config/syntaxv2/plugins` or similar).</p>
+                <p>Extend Macsploit V2 using the powerful Lua-based plugin API. You can create custom commands, interface elements, language support, and more.</p>
+                <p>Plugins are typically Lua scripts placed in the user's Macsploit V2 configuration directory (`~/.config/macsploitv2/plugins` or similar).</p>
 
                 <h4>Example API Usage</h4>
                 <p>Here's a simple example of registering a new command:</p>
                 <pre><code class="language-lua">-- plugins/my_command.lua
 
--- Access the Syntax V2 API namespace
-local sv2 = syntaxv2
+-- Access the Macsploit V2 API namespace
+local sv2 = macsploitv2
 
 -- Register a command that shows an info message
 sv2.commands.register("myplugin.showInfo", function()
   sv2.ui.show_info_message("My Plugin Command Executed!")
 end)
 
--- Optionally, add it to the command palette
-sv2.commands.add_to_palette({
+-- Optionally, add it to the command palette/toolbar
+-- (Specific API may vary)
+sv2.ui.add_toolbar_button({
   command = "myplugin.showInfo",
-  title = "My Plugin: Show Info Message"
+  label = "Show Info",
+  icon = "info-circle" -- Example icon name
 })
 
 sv2.log.info("My Plugin loaded successfully.")</code></pre>
-                <p>To run this command, open the command palette (e.g., `Ctrl+Shift+P`) and search for "My Plugin: Show Info Message".</p>
+                <p>This command might now appear as a button or be accessible via a command menu.</p>
                 <h4>Available API Modules (Partial List)</h4>
                 <ul>
-                    <li><code>syntaxv2.editor</code>: Interact with the active editor (get/set text, selections, etc.).</li>
-                    <li><code>syntaxv2.ui</code>: Show notifications, input boxes, quick picks.</li>
-                    <li><code>syntaxv2.workspace</code>: Access project files and folders.</li>
-                    <li><code>syntaxv2.commands</code>: Register and execute commands.</li>
-                    <li><code>syntaxv2.log</code>: Log messages to the developer console.</li>
+                    <li><code>macsploitv2.editor</code>: Interact with the active editor (get/set text, selections, etc.).</li>
+                    <li><code>macsplotv2.ui</code>: Show notifications, manage UI elements.</li>
+                    <li><code>macsploitv2.workspace</code>: Access project files and folders.</li>
+                    <li><code>macsploitv2.commands</code>: Register and execute commands.</li>
+                    <li><code>macsploitv2.log</code>: Log messages to the developer console.</li>
+                    <li><code>macsploitv2.connection</code>: Manage connection status and port information.</li>
                 </ul>
                 <p>Refer to the full API reference within the application (Help > API Documentation) for detailed information on all available modules and functions.</p>
              </div>
 
         </section> <section id="privacy-page" class="page-section legal-page container mx-auto px-6 md:px-10 lg:px-16 max-w-4xl">
              <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll fade-in">Privacy Policy</h2>
-             <p class="text-sm text-slate-500 text-center -mt-12 mb-12 animate-on-scroll fade-in">Last Updated: April 26, 2025</p>
+             <p class="text-sm text-zinc-500 text-center -mt-12 mb-12 animate-on-scroll fade-in">Last Updated: April 26, 2025</p>
 
              <div class="animate-on-scroll fade-in">
                  <h3>Introduction</h3>
-                 <p>Syntax V2 ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our desktop application ("Application"). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
-
+                 <p>Macsploit V2 ("we", "us", "our") is committed to protecting your privacy...</p>
                  <h3>Collection of Your Information</h3>
-                 <p>We may collect information about you in a variety of ways. The information we may collect via the Application includes:</p>
-                 <h4>Personal Data</h4>
-                 <p>Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you purchase or register the Application, or when you choose to participate in various activities related to the Application, such as chat, posting messages in comment sections or in our forums, liking posts, sending feedback, and responding to surveys. You are under no obligation to provide us with personal information of any kind, however your refusal to do so may prevent you from using certain features of the Application.</p>
-                 <h4>License and Usage Data</h4>
-                 <p>We may collect information related to your license key activation and basic, anonymized usage data to help us improve the Application. This may include application version, operating system, crash reports (if explicitly enabled by you), and feature usage frequency. This data is aggregated and does not personally identify you.</p>
-                 <h4>Derivative Data</h4>
-                 <p>Information our servers automatically collect when you access the Application, such as your IP address (anonymized), your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Application. (Note: This typically applies more to websites, adapt if application has online components).</p>
-
-                 <h3>Use of Your Information</h3>
-                 <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Application to:</p>
-                 <ul>
-                     <li>Create and manage your account.</li>
-                     <li>Process your payments and refunds.</li>
-                     <li>Email you regarding your account or order.</li>
-                     <li>Enable user-to-user communications.</li>
-                     <li>Fulfill and manage purchases, orders, payments, and other transactions related to the Application.</li>
-                     <li>Generate a personal profile about you to make future visits to the Application more personalized.</li>
-                     <li>Increase the efficiency and operation of the Application.</li>
-                     <li>Monitor and analyze usage and trends to improve your experience with the Application.</li>
-                     <li>Notify you of updates to the Application.</li>
-                     <li>Offer new products, services, and/or recommendations to you.</li>
-                     <li>Perform other business activities as needed.</li>
-                     <li>Prevent fraudulent transactions, monitor against theft, and protect against criminal activity.</li>
-                     <li>Request feedback and contact you about your use of the Application.</li>
-                     <li>Resolve disputes and troubleshoot problems.</li>
-                     <li>Respond to product and customer service requests.</li>
-                     <li>Send you a newsletter (if opted-in).</li>
-                     <li>Solicit support for the Application.</li>
-                 </ul>
-
+                 <h4>Personal Data</h4><p>...</p>
+                 <h4>License and Usage Data</h4><p>...</p>
+                 <h4>Derivative Data</h4><p>...</p>
+                 <h3>Use of Your Information</h3><ul><li>...</li></ul>
                  <h3>Disclosure of Your Information</h3>
-                 <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
-                 <h4>By Law or to Protect Rights</h4>
-                 <p>If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.</p>
-                 <h4>Third-Party Service Providers</h4>
-                 <p>We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</p>
-                 <h4>Business Transfers</h4>
-                 <p>We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</p>
-                 <p>We do not sell your personal information to third parties.</p>
-
-                 <h3>Security of Your Information</h3>
-                 <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
-
-                 <h3>Policy for Children</h3>
-                 <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.</p>
-
+                 <h4>By Law or to Protect Rights</h4><p>...</p>
+                 <h4>Third-Party Service Providers</h4><p>...</p>
+                 <h4>Business Transfers</h4><p>...</p>
+                 <h3>Security of Your Information</h3><p>...</p>
+                 <h3>Policy for Children</h3><p>...</p>
                  <h3>Contact Us</h3>
                  <p>If you have questions or comments about this Privacy Policy, please contact us at: [Your Contact Email Address]</p>
              </div>
         </section> <section id="tos-page" class="page-section legal-page container mx-auto px-6 md:px-10 lg:px-16 max-w-4xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll fade-in">Terms of Service</h2>
-            <p class="text-sm text-slate-500 text-center -mt-12 mb-12 animate-on-scroll fade-in">Last Updated: April 26, 2025</p>
+            <p class="text-sm text-zinc-500 text-center -mt-12 mb-12 animate-on-scroll fade-in">Last Updated: April 26, 2025</p>
 
             <div class="animate-on-scroll fade-in">
-                <h3>1. Agreement to Terms</h3>
-                <p>By purchasing, downloading, installing, or using the Syntax V2 application ("Application"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Application.</p>
-
-                <h3>2. License Grant</h3>
-                <p>Subject to your compliance with these Terms and payment of the applicable license fee, we grant you a limited, non-exclusive, non-transferable, non-sublicensable license to install and use the Application on a specified number of devices owned or controlled by you, solely for your personal or internal business purposes.</p>
-
-                <h3>3. License Restrictions</h3>
-                <p>You agree not to, and you will not permit others to:</p>
-                <ul>
-                    <li>License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose, or otherwise commercially exploit the Application or make the Application available to any third party.</li>
-                    <li>Modify, make derivative works of, disassemble, decrypt, reverse compile, or reverse engineer any part of the Application.</li>
-                    <li>Remove, alter, or obscure any proprietary notice (including any notice of copyright or trademark) of ours or our affiliates, partners, suppliers, or the licensors of the Application.</li>
-                    <li>Use the Application for any illegal purpose, or in violation of any local, state, national, or international law.</li>
-                     <li>Use the Application for any malicious intent, including but not limited to developing malware, exploiting vulnerabilities, or engaging in unauthorized access to computer systems.</li>
-                </ul>
-
-                <h3>4. Payment</h3>
-                <p>You agree to pay the one-time license fee for the Application as specified at the time of purchase. All payments are handled through third-party payment processors. We do not store your credit card details.</p>
-
-                <h3>5. Intellectual Property</h3>
-                <p>The Application, including without limitation all copyrights, patents, trademarks, trade secrets, and other intellectual property rights are, and shall remain, the sole and exclusive property of Syntax V2 or its licensors.</p>
-
-                <h3>6. Updates</h3>
-                <p>We may from time to time provide enhancements or improvements to the features/functionality of the Application, which may include patches, bug fixes, updates, upgrades, and other modifications ("Updates"). Updates may modify or delete certain features and/or functionalities of the Application. You agree that we have no obligation to (i) provide any Updates, or (ii) continue to provide or enable any particular features and/or functionalities of the Application to you. Lifetime updates are provided as long as the product is actively maintained.</p>
-
-                <h3>7. Termination</h3>
-                <p>These Terms shall remain in effect until terminated by you or us. We may, in our sole discretion, at any time and for any or no reason, suspend or terminate these Terms with or without prior notice. These Terms will terminate immediately, without prior notice from us, in the event that you fail to comply with any provision of these Terms. You may also terminate these Terms by deleting the Application and all copies thereof from your devices. Upon termination, you shall cease all use of the Application and delete all copies.</p>
-
-                <h3>8. Disclaimer of Warranties</h3>
-                <p>THE APPLICATION IS PROVIDED TO YOU "AS IS" AND "AS AVAILABLE" AND WITH ALL FAULTS AND DEFECTS WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, WE, ON OUR OWN BEHALF AND ON BEHALF OF OUR AFFILIATES AND OUR AND THEIR RESPECTIVE LICENSORS AND SERVICE PROVIDERS, EXPRESSLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, WITH RESPECT TO THE APPLICATION, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT, AND WARRANTIES THAT MAY ARISE OUT OF COURSE OF DEALING, COURSE OF PERFORMANCE, USAGE, OR TRADE PRACTICE.</p>
-
-                 <h3>9. Limitation of Liability</h3>
-                 <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE OR OUR AFFILIATES, OR ANY OF OUR OR THEIR RESPECTIVE LICENSORS OR SERVICE PROVIDERS, BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY, PUNITIVE, OR OTHER DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, PERSONAL INJURY, LOSS OF PRIVACY, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF OR IN ANY WAY RELATED TO THE USE OF OR INABILITY TO USE THE APPLICATION, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
-
-                <h3>10. Governing Law</h3>
-                <p>These Terms and your use of the Application are governed by and construed in accordance with the laws of [Your State/Country, e.g., Texas, United States], applicable to agreements made and to be entirely performed within [Your State/Country], without regard to its conflict of law principles.</p>
-
-                <h3>11. Changes to These Terms</h3>
-                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
-
+                 <h3>1. Agreement to Terms</h3><p>...</p>
+                <h3>2. License Grant</h3><p>...</p>
+                <h3>3. License Restrictions</h3><ul><li>...</li></ul>
+                <h3>4. Payment</h3><p>...</p>
+                <h3>5. Intellectual Property</h3><p>...</p>
+                <h3>6. Updates</h3><p>...</p>
+                <h3>7. Termination</h3><p>...</p>
+                <h3>8. Disclaimer of Warranties</h3><p>...</p>
+                 <h3>9. Limitation of Liability</h3><p>...</p>
+                <h3>10. Governing Law</h3><p>...</p>
+                <h3>11. Changes to These Terms</h3><p>...</p>
                 <h3>12. Contact Us</h3>
                 <p>If you have any questions about these Terms, please contact us at: [Your Contact Email Address]</p>
             </div>
         </section> </main>
 
     <footer>
-        <div class="container mx-auto text-center text-slate-400">
+        <div class="container mx-auto text-center text-zinc-400">
             <div class="mb-4">
-                <a href="#" onclick="showPage('home'); return false;" class="text-xl font-bold gradient-text">Syntax V2</a>
+                <a href="#" onclick="showPage('home'); return false;" class="text-xl font-semibold gradient-text">Macsploit V2</a>
             </div>
-            <nav class="flex justify-center space-x-6 mb-6">
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
                 <a href="#" onclick="showPage('features'); return false;">Features</a>
                 <a href="#" onclick="showPage('docs'); return false;">Documentation</a>
                 <a href="#" onclick="showPage('pricing'); return false;">Pricing</a>
                 <a href="#" onclick="showPage('privacy'); return false;">Privacy Policy</a>
                 <a href="#" onclick="showPage('tos'); return false;">Terms of Service</a>
             </nav>
-            <p class="text-sm">&copy; 2025 Syntax V2. All rights reserved.</p>
-            <p class="text-xs mt-2">Built with <i class="fa-solid fa-heart text-red-500"></i> for demonstration purposes.</p>
+            <p class="text-sm">&copy; 2025 Macsploit V2. All rights reserved.</p>
+            <p class="text-xs mt-2">Designed for demonstration.</p>
         </div>
     </footer>
 
@@ -572,14 +613,8 @@ sv2.log.info("My Plugin loaded successfully.")</code></pre>
                 targetPageFound = true;
 
                 // Trigger scroll animations for the newly shown page
+                // Need to re-query elements within the active page context
                 triggerScrollAnimations(targetPage);
-
-                // Special handling for home page animation
-                if (pageId === 'home') {
-                    startCodeAnimation();
-                } else {
-                    stopCodeAnimation(); // Stop if navigating away
-                }
             }
 
             // Update active link style in header
@@ -591,27 +626,28 @@ sv2.log.info("My Plugin loaded successfully.")</code></pre>
                 }
             });
 
-            // Special handling for Pay Now button/link activation state
+            // Special handling for Pay Now button/link activation state in header
             const isPricingPage = (pageId === 'pricing');
             payNowButtons.forEach(button => {
-                if (isPricingPage) {
-                    // Check if it's the header button to apply active style
-                    if(button.closest('header')) {
-                        button.classList.add('bg-sky-600', 'shadow-inner'); // Style for active pricing button
-                         button.classList.remove('hover:from-sky-600', 'hover:to-indigo-700'); // Remove hover effect when active
+                // Only style the button in the header
+                if (button.closest('header')) {
+                    if (isPricingPage) {
+                        button.classList.add('ring-2', 'ring-sky-500', 'ring-offset-2', 'ring-offset-zinc-900'); // Indicate active state
+                        button.classList.remove('hover:-translate-y-0.5'); // Remove hover effect when active
+                    } else {
+                        button.classList.remove('ring-2', 'ring-sky-500', 'ring-offset-2', 'ring-offset-zinc-900');
+                        button.classList.add('hover:-translate-y-0.5'); // Restore hover effect
                     }
-                } else {
-                     if(button.closest('header')) {
-                        button.classList.remove('bg-sky-600', 'shadow-inner');
-                        button.classList.add('hover:from-sky-600', 'hover:to-indigo-700'); // Restore hover effect
-                     }
                 }
             });
 
 
             // Scroll to top when changing pages
              if (targetPageFound) {
-                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                 // Use requestAnimationFrame for smoother scroll after content display changes
+                 requestAnimationFrame(() => {
+                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                 });
              }
         }
 
@@ -620,14 +656,16 @@ sv2.log.info("My Plugin loaded successfully.")</code></pre>
         let observer; // Define observer globally
 
         function triggerScrollAnimations(container) {
+            // Select elements within the currently active container
             const elementsToAnimate = container.querySelectorAll('.animate-on-scroll');
+
             elementsToAnimate.forEach(el => {
                 // Reset animation state before observing
                 el.classList.remove('animated');
                 // Re-apply initial transform state based on class
-                if (el.classList.contains('slide-up')) el.style.transform = 'translateY(30px)';
-                else if (el.classList.contains('slide-in-left')) el.style.transform = 'translateX(-30px)';
-                else if (el.classList.contains('slide-in-right')) el.style.transform = 'translateX(30px)';
+                if (el.classList.contains('slide-up')) el.style.transform = 'translateY(25px)';
+                else if (el.classList.contains('slide-in-left')) el.style.transform = 'translateX(-25px)';
+                else if (el.classList.contains('slide-in-right')) el.style.transform = 'translateX(25px)';
                 else el.style.transform = 'translate(0, 0)'; // Default for fade-in
                 el.style.opacity = '0'; // Ensure opacity is 0 initially
 
@@ -647,68 +685,11 @@ sv2.log.info("My Plugin loaded successfully.")</code></pre>
                     }
                 });
             }, {
-                threshold: 0.15, // Trigger when 15% of the element is visible
-                rootMargin: '0px 0px -50px 0px' // Adjust viewport margin slightly
+                threshold: 0.1, // Trigger when 10% of the element is visible
+                rootMargin: '0px 0px -30px 0px' // Start animation slightly before element fully enters viewport
             });
         }
 
-
-        // --- Animated Code Block Logic ---
-        const codeContainer = document.getElementById('code-animation-container');
-        let codeAnimationInterval;
-        const codeLines = [
-            '<span class="token-keyword">import</span> { <span class="token-variable">SyntaxEngine</span> } <span class="token-keyword">from</span> <span class="token-string">"syntax-v2"</span>;',
-            '',
-            '<span class="token-keyword">const</span> <span class="token-variable">engine</span> = <span class="token-keyword">new</span> <span class="token-function">SyntaxEngine</span>({',
-            '  <span class="token-variable">plugins</span>: [<span class="token-string">"git"</span>, <span class="token-string">"docker"</span>],',
-            '  <span class="token-variable">theme</span>: <span class="token-string">"nebula"</span>',
-            '});',
-            '',
-            '<span class="token-comment">// Start analysis</span>',
-            '<span class="token-keyword">async function</span> <span class="token-function">runAnalysis</span>() {',
-            '  <span class="token-keyword">const</span> <span class="token-variable">results</span> = <span class="token-keyword">await</span> <span class="token-variable">engine</span>.<span class="token-function">analyzeProject</span>(<span class="token-string">"./src"</span>);',
-            '  <span class="token-variable">console</span>.<span class="token-function">log</span>(<span class="token-string">`Analysis complete: <span class="token-variable">${results.filesProcessed}</span> files processed.`</span>);',
-            '}',
-            '',
-            '<span class="token-function">runAnalysis</span>();'
-        ];
-        let currentLineIndex = 0;
-
-        function addCodeLine() {
-            if (!codeContainer || !document.getElementById('home-page').classList.contains('active')) {
-                stopCodeAnimation(); // Stop if container gone or not on home
-                return;
-            }
-            if (currentLineIndex < codeLines.length) {
-                const lineElement = document.createElement('span');
-                lineElement.classList.add('code-line');
-                lineElement.innerHTML = codeLines[currentLineIndex];
-                lineElement.style.animationDelay = `${currentLineIndex * 0.1}s`; // Stagger animation
-                codeContainer.appendChild(lineElement);
-                currentLineIndex++;
-            } else {
-                // Loop or stop
-                clearInterval(codeAnimationInterval);
-                 // Optional: Restart after a pause
-                 setTimeout(() => {
-                     if (document.getElementById('home-page').classList.contains('active')) { // Check again before restarting
-                         startCodeAnimation();
-                     }
-                 }, 5000); // Pause for 5 seconds
-            }
-        }
-
-        function startCodeAnimation() {
-            if (!codeContainer) return;
-            stopCodeAnimation(); // Clear previous interval if any
-            codeContainer.innerHTML = ''; // Clear previous lines
-            currentLineIndex = 0;
-            codeAnimationInterval = setInterval(addCodeLine, 150); // Add a line every 150ms
-        }
-
-        function stopCodeAnimation() {
-            clearInterval(codeAnimationInterval);
-        }
 
         // --- Initial Page Load ---
         document.addEventListener('DOMContentLoaded', () => {
